@@ -1,7 +1,7 @@
 # Личный проект «Кекстаграм» [![Build status][travis-image]][travis-url]
 
 * Студент: [Ирина Журавлева](https://up.htmlacademy.ru/javascript/14/user/238923).
-* Наставник: `Неизвестно`.
+* Наставник: без наставника.
 
 ---
 
