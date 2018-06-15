@@ -14,7 +14,7 @@ function getRandomElementFromArray(array) {
 //создаю массив, состоящий из 25 фото
 
 var infoPictures = [];
-for (var i = 0; i < 25; i++) {
+for (var i = 0; i < 26; i++) {
   var picture = {
       url: '../photos' + getRandomNumber(1, 25) + '.jpg',
       likes: getRandomNumber(15, 200),
@@ -26,28 +26,23 @@ for (var i = 0; i < 25; i++) {
 };
 
 
-//на его основе создаю дом-элементы для фото и заполняю их данными из массива
-//вот это вообще не понимаю, что такое
-var renderPicture = function (superPicture, i) {
-  var template = document.querySelector('#picture');
-  var element = template.content.cloneNode(true);
-  element.querySelector('.picture__link').innerHTML = picture.url;
-  element.querySelector('.picture__stat--likes').textContent = picture.likes;
-  element.querySelector('.picture__stat--comments').textContent = picture.comments;
-};
-
+//должна быть рендеринг функция для производства клонов, а не просто аппенд чайлд, который вставляет
 
 
 // отрисовываю все элементы в блок .pictures при помощи DocumentFragment
 
 var listPictures = document.querySelector('.pictures');
 //var fragmentPicture = document.createDocumentFragment();
-var pictureTemplate = document.querySelector('.picture');
+var pictureTemplate = document.querySelector('.picture').content.querySelector('a');
 
 
-for (var n = 0; n < 25; n++) {
+for (var n = 0; n < infoPictures.length; n++) {
 
   var pictureElement = pictureTemplate.cloneNode(true);
+  //pictureElement.querySelector('.picture__link').innerHTML = infoPictures[i].url;
+  //pictureElement.querySelector('.picture__stat--likes').textContent = infoPictures[i].picture.likes;
+  //pictureElement.querySelector('.picture__stat--comments').textContent = infoPictures[i].picture.comments;
+
 
   // pinElement.className = 'pin';
   // pinElement.classList.add('pin--' + n );
